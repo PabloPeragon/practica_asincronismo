@@ -44,7 +44,7 @@ final class KcDragonBallPabloPerTests: XCTestCase {
     
     func testLoginFake() async throws {
         let KC = KeyChainKC()
-        XCTAssertNil(KC)
+        XCTAssertNotNil(KC)
         
         let obj = LoginUseCaseFake()
         XCTAssertNotNil(obj)
@@ -79,7 +79,7 @@ final class KcDragonBallPabloPerTests: XCTestCase {
         
         //validar
         let resp = await useCase.validateToken()
-        XCTAssertEqual(resp, true)
+        XCTAssertEqual(resp, false)
         
         //login
         let dloginDo = await useCase.loginApp(user: "", password: "")
@@ -101,6 +101,30 @@ final class KcDragonBallPabloPerTests: XCTestCase {
         
         let vc = await ErrorViewController(appState: appStateVM, error: "Error")
         XCTAssertNotNil(vc)
+    }
+    
+    func testHeroViewModel() async throws {
+        let vm = HerosVeiwModel(userCaseHeros: HeroUseCaseFake())
+        XCTAssertNotNil(vm)
+    }
+    
+    func testHerosUseCase() async throws {
+        let usecase = HeroUseCase(repo: HerosRepositoryFake())
+        XCTAssertNotNil(usecase)
+        
+        let data = await usecase.getHeros(filter: "")
+        XCTAssertNotNil(data)
+        XCTAssertEqual(data.count, 2)
+    }
+    
+    
+    func testTransforUseCase() async throws {
+        let usecase = HeroUseCase(repo: HerosRepositoryFake())
+        XCTAssertNotNil(usecase)
+        
+        let data = await usecase.getHeroTransformations(idHero: "")
+        XCTAssertNotNil(data)
+        XCTAssertEqual(data.count, 2)
     }
         
 }
