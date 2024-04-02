@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  KcDragonBallPabloPer
+
+  Created by Pablo Jesús Peragón Garrido on 1/4/24.
+  
+*/
+
+//English
+"Email"="e-mail";
+"Password"="Password";
+"Login"="Login";
+"Return"="return";
+"User"="User";

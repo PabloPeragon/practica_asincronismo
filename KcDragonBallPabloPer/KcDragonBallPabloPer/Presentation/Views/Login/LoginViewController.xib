@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="KcDragonBallPabloPer" customModuleProvider="target">
+            <connections>
+                <outlet property="emailText" destination="05S-9W-usp" id="kL1-Mo-aJ4"/>
+                <outlet property="loginButton" destination="qfT-18-sdi" id="MnB-cB-CkX"/>
+                <outlet property="passwordText" destination="Zob-Sq-R3s" id="gv3-8S-6HY"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.75" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fondo2" translatesAutoresizingMaskIntoConstraints="NO" id="WAg-A3-zy5">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="title" translatesAutoresizingMaskIntoConstraints="NO" id="DoW-rL-EPL" userLabel="Logo">
+                    <rect key="frame" x="65" y="12" width="263" height="136"/>
+                </imageView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="5XL-Dp-F4r">
+                    <rect key="frame" x="80" y="313" width="233" height="130.33333333333337"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fT9-Hl-piK">
+                            <rect key="frame" x="0.0" y="0.0" width="233" height="76"/>
+                            <subviews>
+                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="05S-9W-usp" userLabel="user">
+                                    <rect key="frame" x="0.0" y="0.0" width="233" height="34"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                    <textInputTraits key="textInputTraits" textContentType="email"/>
+                                </textField>
+                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zob-Sq-R3s" userLabel="password">
+                                    <rect key="frame" x="0.0" y="42" width="233" height="34"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                    <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                </textField>
+                            </subviews>
+                        </stackView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qfT-18-sdi">
+                            <rect key="frame" x="0.0" y="96" width="233" height="34.333333333333343"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="filled" title="Login"/>
+                        </button>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="WAg-A3-zy5" secondAttribute="trailing" id="4qv-no-3I2"/>
+                <constraint firstItem="5XL-Dp-F4r" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="80" id="D8F-yX-3ze"/>
+                <constraint firstAttribute="bottom" secondItem="WAg-A3-zy5" secondAttribute="bottom" id="HxY-Pp-r0O"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="DoW-rL-EPL" secondAttribute="trailing" constant="65" id="O0N-kH-mVD"/>
+                <constraint firstItem="DoW-rL-EPL" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="12" id="OI7-Fa-Z6p"/>
+                <constraint firstItem="DoW-rL-EPL" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="65" id="PPz-Xe-na1"/>
+                <constraint firstItem="WAg-A3-zy5" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="QMc-dN-Jp8"/>
+                <constraint firstItem="5XL-Dp-F4r" firstAttribute="top" secondItem="DoW-rL-EPL" secondAttribute="bottom" constant="165" id="QrT-xU-WSt"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="5XL-Dp-F4r" secondAttribute="trailing" constant="80" id="Vu5-Du-baG"/>
+                <constraint firstItem="WAg-A3-zy5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="sxn-B1-wJ6"/>
+            </constraints>
+            <point key="canvasLocation" x="131" y="-11"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="fondo2" width="1080" height="1920"/>
+        <image name="title" width="787" height="136"/>
+    </resources>
+</document>
