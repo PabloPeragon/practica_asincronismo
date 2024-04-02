@@ -126,5 +126,91 @@ final class KcDragonBallPabloPerTests: XCTestCase {
         XCTAssertNotNil(data)
         XCTAssertEqual(data.count, 2)
     }
+    
+    func testHeros_data() async throws {
+        let network = NetworkHerosFake()
+        XCTAssertNotNil(network)
         
+        let repo = HerosRepository(network: network)
+        XCTAssertNotNil(repo)
+        
+        let repo2 = HerosRepositoryFake()
+        XCTAssertNotNil(repo2)
+        
+        let data = await repo.getHeros(filter: "")
+        XCTAssertEqual(data.count, 2)
+        
+        let data2 = await repo2.getHeros(filter: "")
+        XCTAssertEqual(data2.count, 2)
+    }
+    
+    func testHero_Domain() async throws {
+        let model = HerosModel(id: UUID(), favorite: true, description: "Hola", photo: "", name: "goku")
+        XCTAssertNotNil(model)
+        
+        XCTAssertEqual(model.name, "goku")
+        XCTAssertEqual(model.getFullName(), "goku $")
+        XCTAssertEqual(model.description, "Hola")
+    }
+    
+    func testHeros_Presentation() async throws {
+        let viewModel = HerosVeiwModel(userCaseHeros: HeroUseCaseFake())
+        XCTAssertNotNil(viewModel)
+        
+        let view = await HerosTableViewController(appState: AppState(loginUseCase: LoginUseCaseFake()), viewModel: viewModel)
+        XCTAssertNotNil(view)
+    }
+    
+    func testTrans_Model() throws {
+        let model = TransformationModel(id: UUID(), name: "Goku1", description: "", photo: "")
+        XCTAssertNotNil(model)
+        XCTAssertEqual(model.name, "Goku1")
+        
+        
+        let modelResquest = TransformationModelRequest(id: "10010")
+        XCTAssertNotNil(modelResquest)
+        XCTAssertEqual(modelResquest.id, "10010")
+    }
+    
+    func testTrans_Data() async throws {
+        let network = NetworkHerosFake()
+        XCTAssertNotNil(network)
+       
+        let repo = HerosRepository(network: network)
+        XCTAssertNotNil(repo)
+        
+        let repo2 = HerosRepositoryFake()
+        XCTAssertNotNil(repo2)
+        
+        
+        let data = await repo.getHeroTransformations(idHero: "100")
+        XCTAssertNotNil(data)
+        XCTAssertEqual(data.count, 2)
+        
+        let data2 = await repo2.getHeroTransformations(idHero: "100")
+        XCTAssertNotNil(data2)
+        XCTAssertEqual(data2.count, 2)
+
+    }
+    
+    func testTrans_Domain() async throws {
+        let caseUse = HeroUseCase(repo: HerosRepository(network: NetworkHerosFake()))
+        XCTAssertNotNil(caseUse)
+        
+        let data = await caseUse.getHeroTransformations(idHero: "XXXXX")
+        XCTAssertNotNil(data)
+        XCTAssertEqual(data.count, 2)
+
+    }
+    
+    func testTrans_Presentation()  throws {
+        let viewModel = HerosVeiwModel(userCaseHeros: HeroUseCaseFake())
+        XCTAssertNotNil(viewModel)
+
+        let model = HerosModel(id: UUID(), favorite: true, description: "", photo: "", name: "goku")
+        XCTAssertNotNil(model)
+        
+        let view =  TransformationsTableViewController(HeroSelected: model, vmHeros: viewModel)
+        XCTAssertNotNil(view)
+    }
 }
